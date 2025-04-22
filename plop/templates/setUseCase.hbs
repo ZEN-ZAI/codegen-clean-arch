@@ -1,0 +1,19 @@
+import I{{pascalCase name}}Repository from "@/domain/{{camelCase domain}}/repositories/{{camelCase name}}.repository";
+
+export function create{{pascalCase name}}UseCase(repository: I{{pascalCase name}}Repository) {
+  return async (data: Partial<any>) => {
+    return await repository.create(data);
+  };
+}
+
+export function update{{pascalCase name}}UseCase(repository: I{{pascalCase name}}Repository) {
+  return async (id: string, data: Partial<any>) => {
+    return await repository.update(id, data);
+  };
+}
+
+export function delete{{pascalCase name}}UseCase(repository: I{{pascalCase name}}Repository) {
+  return async (id: string) => {
+    return await repository.delete(id);
+  };
+}

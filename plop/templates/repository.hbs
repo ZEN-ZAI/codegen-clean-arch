@@ -1,0 +1,9 @@
+import {{pascalCase name}}Entity from "../entities/{{camelCase name}}.entity";
+
+export default interface I{{pascalCase name}}Repository {
+  find(): Promise<{{pascalCase name}}Entity[]>;
+  findById(id: string): Promise<{{pascalCase name}}Entity | null>;
+  create(data: Partial<{{pascalCase name}}Entity>): Promise<boolean>;
+  update(id: string, data: Partial<{{pascalCase name}}Entity>): Promise<boolean>;
+  delete(id: string): Promise<boolean>;
+}

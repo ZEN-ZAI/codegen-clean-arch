@@ -1,0 +1,23 @@
+import { useCallback } from "react";
+import {
+  create{{pascalCase name}}UseCase,
+  update{{pascalCase name}}UseCase,
+  delete{{pascalCase name}}UseCase,
+} from "../useCases/set{{pascalCase name}}.useCase";
+import I{{pascalCase name}}Repository from "@/domain/{{camelCase domain}}/repositories/{{camelCase name}}.repository";
+
+export default function use{{pascalCase name}}Mutations(repository: I{{pascalCase name}}Repository) {
+  const create = useCallback(async (data: Partial<any>) => {
+    return await create{{pascalCase name}}UseCase(repository)(data);
+  }, [repository]);
+
+  const update = useCallback(async (id: string, data: Partial<any>) => {
+    return await update{{pascalCase name}}UseCase(repository)(id, data);
+  }, [repository]);
+
+  const remove = useCallback(async (id: string) => {
+    return await delete{{pascalCase name}}UseCase(repository)(id);
+  }, [repository]);
+
+  return { create, update, remove };
+}

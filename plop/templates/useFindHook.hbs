@@ -1,0 +1,14 @@
+import { useCallback, useState } from "react";
+import find{{pascalCase name}}UseCase from "../useCases/find{{pascalCase name}}.useCase";
+import I{{pascalCase name}}Repository from "@/domain/{{camelCase domain}}/repositories/{{camelCase name}}.repository";
+
+export default function useFind{{pascalCase name}}(repository: I{{pascalCase name}}Repository) {
+  const [data, setData] = useState([]);
+
+  const find = useCallback(async () => {
+    const result = await find{{pascalCase name}}UseCase(repository)();
+    setData(result);
+  }, [repository]);
+
+  return { data, find };
+}

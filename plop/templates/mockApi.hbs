@@ -1,0 +1,42 @@
+import I{{pascalCase name}}Repository from "@/domain/{{camelCase domain}}/repositories/{{camelCase name}}.repository";
+import {{pascalCase name}}Entity from "@/domain/{{camelCase domain}}/entities/{{camelCase name}}.entity";
+
+const mockData: {{pascalCase name}}Entity[] = [
+  {
+    id: "1",
+    // add your mock fields
+  }
+];
+
+export default class {{pascalCase name}}MockRepository implements I{{pascalCase name}}Repository {
+  async find(): Promise<{{pascalCase name}}Entity[]> {
+    return mockData;
+  }
+
+  async findById(id: string): Promise<{{pascalCase name}}Entity | null> {
+    return mockData.find((item) => item.id === id) || null;
+  }
+
+  async create(data: Partial<{{pascalCase name}}Entity>): Promise<boolean> {
+    mockData.push({ ...data, id: Date.now().toString() } as {{pascalCase name}}Entity);
+    return true;
+  }
+
+  async update(id: string, data: Partial<{{pascalCase name}}Entity>): Promise<boolean> {
+    const index = mockData.findIndex((item) => item.id === id);
+    if (index !== -1) {
+      mockData[index] = { ...mockData[index], ...data };
+      return true;
+    }
+    return false;
+  }
+
+  async delete(id: string): Promise<boolean> {
+    const index = mockData.findIndex((item) => item.id === id);
+    if (index !== -1) {
+      mockData.splice(index, 1);
+      return true;
+    }
+    return false;
+  }
+}

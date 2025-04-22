@@ -1,0 +1,29 @@
+import axios from "axios";
+import I{{pascalCase name}}Repository from "@/domain/{{camelCase domain}}/repositories/{{camelCase name}}.repository";
+import {{pascalCase name}}Entity from "@/domain/{{camelCase domain}}/entities/{{camelCase name}}.entity";
+
+const {{camelCase name}}ApiRepository: I{{pascalCase name}}Repository = {
+  async find(): Promise<{{pascalCase name}}Entity[]> {
+    const response = await axios.get("/api/{{camelCase domain}}/{{camelCase name}}");
+    return response.data;
+  },
+
+  async findById(id: string): Promise<{{pascalCase name}}Entity | null> {
+    const response = await axios.get(`/api/{{camelCase domain}}/{{camelCase name}}/${id}`);
+    return response.data;
+  },
+
+  async create(data: Partial<{{pascalCase name}}Entity>): Promise<boolean> {
+    return (await axios.post("/api/{{camelCase domain}}/{{camelCase name}}", data)).status === 200;
+  },
+
+  async update(id: string, data: Partial<{{pascalCase name}}Entity>): Promise<boolean> {
+    return (await axios.put(`/api/{{camelCase domain}}/{{camelCase name}}/${id}`, data)).status === 200;
+  },
+  
+  async delete(id: string): Promise<boolean> {
+    return (await axios.delete(`/api/{{camelCase domain}}/{{camelCase name}}/${id}`)).status === 200;
+  },
+};
+
+export default {{camelCase name}}ApiRepository;

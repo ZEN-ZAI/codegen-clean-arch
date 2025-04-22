@@ -1,0 +1,28 @@
+import React, { useEffect } from "react";
+import { {{pascalCase name}}Provider, use{{pascalCase name}}Context } from "@/application/{{camelCase domain}}/provider/{{pascalCase name}}Provider";
+import I{{pascalCase name}}Repository from "@/domain/{{camelCase domain}}/repositories/{{camelCase name}}.repository";
+
+const {{pascalCase name}}Page: React.FC<{ repository: I{{pascalCase name}}Repository }> = ({ repository }) => {
+  const { data, find } = use{{pascalCase name}}Context();
+
+  useEffect(() => {
+    find();
+  }, []);
+
+  return (
+    <div>
+      <h1>{{pascalCase name}} Page</h1>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+    </div>
+  );
+};
+
+const {{pascalCase name}}WithProvider: React.FC<{ repository: I{{pascalCase name}}Repository }> = ({ repository }) => {
+  return (
+    <{{pascalCase name}}Provider repository={repository}>
+      <{{pascalCase name}}Page repository={repository} />
+    </{{pascalCase name}}Provider>
+  );
+};
+
+export default {{pascalCase name}}WithProvider;

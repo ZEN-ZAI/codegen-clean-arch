@@ -1,0 +1,12 @@
+import I{{pascalCase name}}Repository from "@/domain/{{camelCase domain}}/repositories/{{camelCase name}}.repository";
+
+export function find{{pascalCase name}}UseCase(repository: I{{pascalCase name}}Repository) {
+  return async () => {
+    return await repository.find();
+  };
+}
+export function findById{{pascalCase name}}UseCase(repository: I{{pascalCase name}}Repository) {
+  return async () => {
+    return await repository.findById();
+  };
+}

@@ -1,0 +1,15 @@
+{
+  "name": "codegen-clean-arch",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "plop": "bunx plop --plopfile plop/plopfile.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "plop": "^4.0.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

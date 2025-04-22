@@ -1,0 +1,50 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import React, { createContext, ReactNode, useContext, Dispatch, SetStateAction } from "react";
+
+interface GenericContextType<T> {
+  data: T | null;
+  setData: Dispatch<SetStateAction<T | null>>;
+  loading: boolean;
+  error: string | null;
+}
+
+const createGenericContext = <T,>(useHook: (repository: any) => GenericContextType<T>) => {
+  const GenericContext = createContext<GenericContextType<T> | undefined>(undefined);
+
+  const GenericProvider: React.FC<{ repository: any; children: ReactNode }> = ({ repository, children }) => {
+    const contextValue = useHook(repository);
+    return <GenericContext.Provider value={contextValue}>{children}</GenericContext.Provider>;
+  };
+
+  const useGenericContext = () => {
+    const context = useContext(GenericContext);
+    if (!context) {
+      throw new Error("useGenericContext must be used within a Provider");
+    }
+    return context;
+  };
+
+  return { Provider: GenericProvider, useContext: useGenericContext };
+};
+
+export const createFlexibleContext = <T,>(useHook: (repository: any) => T) => {
+  const FlexibleContext = createContext<T | undefined>(undefined);
+
+  const FlexibleProvider: React.FC<{ repository: any; children: ReactNode }> = ({ repository, children }) => {
+    const contextValue = useHook(repository);
+    return <FlexibleContext.Provider value={contextValue}>{children}</FlexibleContext.Provider>;
+  };
+
+  const useFlexibleContext = () => {
+    const context = useContext(FlexibleContext);
+    if (!context) {
+      throw new Error("useFlexibleContext must be used within a Provider");
+    }
+    return context;
+  };
+
+  return { Provider: FlexibleProvider, useContext: useFlexibleContext };
+};
+
+export default createGenericContext;
