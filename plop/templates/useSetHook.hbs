@@ -4,7 +4,7 @@ import {
   update{{pascalCase name}}UseCase,
   delete{{pascalCase name}}UseCase,
 } from "../useCases/set{{pascalCase name}}.useCase";
-import I{{pascalCase name}}Repository from "@/domain/{{camelCase domain}}/repositories/{{camelCase name}}.repository";
+import I{{pascalCase name}}Repository from "@/{{camelCase domain}}/domain/repositories/{{camelCase name}}.repository";
 
 export default function use{{pascalCase name}}Mutations(repository: I{{pascalCase name}}Repository) {
   const create = useCallback(async (data: Partial<any>) => {

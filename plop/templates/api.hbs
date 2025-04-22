@@ -1,6 +1,6 @@
 import axios from "axios";
-import I{{pascalCase name}}Repository from "@/domain/{{camelCase domain}}/repositories/{{camelCase name}}.repository";
-import {{pascalCase name}}Entity from "@/domain/{{camelCase domain}}/entities/{{camelCase name}}.entity";
+import I{{pascalCase name}}Repository from "@/{{camelCase domain}}/domain/repositories/{{camelCase name}}.repository";
+import {{pascalCase name}}Entity from "@/{{camelCase domain}}/domain/entities/{{camelCase name}}.entity";
 
 const {{camelCase name}}ApiRepository: I{{pascalCase name}}Repository = {
   async find(): Promise<{{pascalCase name}}Entity[]> {

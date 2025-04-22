@@ -1,4 +1,4 @@
-import I{{pascalCase name}}Repository from "@/domain/{{camelCase domain}}/repositories/{{camelCase name}}.repository";
+import I{{pascalCase name}}Repository from "@/{{camelCase domain}}/domain/repositories/{{camelCase name}}.repository";
 
 export function create{{pascalCase name}}UseCase(repository: I{{pascalCase name}}Repository) {
   return async (data: Partial<any>) => {

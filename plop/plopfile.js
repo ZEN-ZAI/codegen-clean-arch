@@ -1,6 +1,6 @@
 export default function (plop) {
   plop.setGenerator("DDD", {
-    description: "Generate full stack job feature (entity, repository, useCases, hooks, views)",
+    description: "Generate DDD structure with entity, repository, useCases, hooks, views and other files",
     prompts: [
       {
         type: "input",
@@ -16,52 +16,52 @@ export default function (plop) {
     actions: [
       {
         type: "add",
-        path: "../output/domain/{{camelCase domain}}/entities/{{camelCase name}}.entity.ts",
+        path: "../output/{{camelCase domain}}/domain/entities/{{camelCase name}}.entity.ts",
         templateFile: "templates/entity.hbs",
       },
       {
         type: "add",
-        path: "../output/domain/{{camelCase domain}}/repositories/{{camelCase name}}.repository.ts",
+        path: "../output/{{camelCase domain}}/domain/repositories/{{camelCase name}}.repository.ts",
         templateFile: "templates/repository.hbs",
       },
       {
         type: "add",
-        path: "../output/application/{{camelCase domain}}/useCases/find{{pascalCase name}}.useCase.ts",
+        path: "../output/{{camelCase domain}}/application/useCases/find{{pascalCase name}}.useCase.ts",
         templateFile: "templates/findUseCase.hbs",
       },
       {
         type: "add",
-        path: "../output/application/{{camelCase domain}}/useCases/set{{pascalCase name}}.useCase.ts",
+        path: "../output/{{camelCase domain}}/application/useCases/set{{pascalCase name}}.useCase.ts",
         templateFile: "templates/setUseCase.hbs",
       },
       {
         type: "add",
-        path: "../output/application/{{camelCase domain}}/hooks/useFind{{pascalCase name}}.ts",
+        path: "../output/{{camelCase domain}}/application/hooks/useFind{{pascalCase name}}.ts",
         templateFile: "templates/useFindHook.hbs",
       },
       {
         type: "add",
-        path: "../output/application/{{camelCase domain}}/hooks/use{{pascalCase name}}Mutations.ts",
+        path: "../output/{{camelCase domain}}/application/hooks/use{{pascalCase name}}Mutations.ts",
         templateFile: "templates/useSetHook.hbs",
       },
       {
         type: "add",
-        path: "../output/application/{{camelCase domain}}/provider/{{pascalCase name}}Provider.tsx",
+        path: "../output/{{camelCase domain}}/application/provider/{{pascalCase name}}Provider.tsx",
         templateFile: "templates/provider.hbs",
       },
       {
         type: "add",
-        path: "../output/presentation/views/{{camelCase domain}}/{{pascalCase name}}.tsx",
+        path: "../output/{{camelCase domain}}/presentation/views/{{pascalCase name}}.tsx",
         templateFile: "templates/view.tsx.hbs",
       },
       {
         type: "add",
-        path: "../output/infrastructure/api/{{camelCase domain}}/index.api.ts",
+        path: "../output/{{camelCase domain}}/infrastructure/api/index.api.ts",
         templateFile: "templates/api.hbs",
       },
       {
         type: "add",
-        path: "../output/infrastructure/api/{{camelCase domain}}/mock.api.ts",
+        path: "../output/{{camelCase domain}}/infrastructure/api/mock.api.ts",
         templateFile: "templates/mockApi.hbs",
       },
       {
