@@ -3,7 +3,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "plop": "bunx plop --plopfile plop/plopfile.js"
+    "plop": "bun x plop --plopfile plop/plopfile.js"
   },
   "devDependencies": {
     "@types/bun": "latest",
