@@ -24,5 +24,10 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false
+    ,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["output/*"]
+    }
   }
 }

@@ -1,9 +1,10 @@
 import { useCallback, useState } from "react";
-import find{{pascalCase name}}UseCase from "../useCases/find{{pascalCase name}}.useCase";
+import { find{{pascalCase name}}UseCase } from "../useCases/find{{pascalCase name}}.useCase";
 import I{{pascalCase name}}Repository from "@/{{camelCase domain}}/domain/repositories/{{camelCase name}}.repository";
+import {{pascalCase name}}Entity from "@/{{camelCase domain}}/domain/entities/{{camelCase name}}.entity";
 
 export default function useFind{{pascalCase name}}(repository: I{{pascalCase name}}Repository) {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<{{pascalCase name}}Entity[]>([]);
 
   const find = useCallback(async () => {
     const result = await find{{pascalCase name}}UseCase(repository)();
