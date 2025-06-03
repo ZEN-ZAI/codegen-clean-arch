@@ -6,7 +6,7 @@ export function find{{pascalCase name}}UseCase(repository: I{{pascalCase name}}R
   };
 }
 export function findById{{pascalCase name}}UseCase(repository: I{{pascalCase name}}Repository) {
-  return async () => {
-    return await repository.findById();
+  return async (id: string) => {
+    return await repository.findById(id);
   };
 }
